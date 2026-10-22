@@ -22,6 +22,7 @@ public struct AddEditMemoryView: View {
     @State private var rating: Int = 5
     @State private var tagsText: String = ""
     @State private var photos: [MemoryPhoto] = []
+    @State private var hasLoadedInitialData: Bool = false
 
     public init(store: TravelStore, existingMemory: MemoryEntry? = nil, preselectedTripId: UUID? = nil) {
         self.store = store
@@ -149,6 +150,8 @@ public struct AddEditMemoryView: View {
                 }
             }
             .onAppear {
+                guard !hasLoadedInitialData else { return }
+                hasLoadedInitialData = true
                 if let memory = existingMemory {
                     self.title = memory.title
                     self.story = memory.story
@@ -195,7 +198,7 @@ public struct AddEditMemoryView: View {
         let parsedTags = tagsText
             .components(separatedBy: CharacterSet(charactersIn: ", "))
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-            .filter { !$0.isEmpty }
+            .filter { !$0.isEmpty && $0 != "#" }
             .map { $0.hasPrefix("#") ? $0 : "#\($0)" }
 
         if var memory = existingMemory {

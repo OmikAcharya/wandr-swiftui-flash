@@ -6,9 +6,14 @@ public struct MemoryDetailView: View {
     @ObservedObject public var store: TravelStore
     public let memoryId: UUID
 
-    @State private var showEditSheet: Bool = false
+    private enum ActiveSheet: Identifiable {
+        case edit
+        case postcard
+        var id: Int { hashValue }
+    }
+
+    @State private var activeSheet: ActiveSheet? = nil
     @State private var showDeleteAlert: Bool = false
-    @State private var showPostcardSheet: Bool = false
     @State private var selectedPhotoIndex: Int = 0
 
     public init(store: TravelStore, memoryId: UUID) {
@@ -164,7 +169,7 @@ public struct MemoryDetailView: View {
 
                             // Souvenir Postcard Button
                             Button {
-                                showPostcardSheet = true
+                                activeSheet = .postcard
                             } label: {
                                 HStack(spacing: 10) {
                                     Image(systemName: "envelope.fill")
@@ -200,13 +205,13 @@ public struct MemoryDetailView: View {
                     ToolbarItem(placement: .primaryAction) {
                         Menu {
                             Button {
-                                showPostcardSheet = true
+                                activeSheet = .postcard
                             } label: {
                                 Label("Souvenir Postcard", systemImage: "envelope")
                             }
 
                             Button {
-                                showEditSheet = true
+                                activeSheet = .edit
                             } label: {
                                 Label("Edit Memory", systemImage: "pencil")
                             }
@@ -230,11 +235,13 @@ public struct MemoryDetailView: View {
                         }
                     }
                 }
-                .sheet(isPresented: $showEditSheet) {
-                    AddEditMemoryView(store: store, existingMemory: memory)
-                }
-                .sheet(isPresented: $showPostcardSheet) {
-                    PostcardShareView(memory: memory)
+                .sheet(item: $activeSheet) { sheet in
+                    switch sheet {
+                    case .edit:
+                        AddEditMemoryView(store: store, existingMemory: memory)
+                    case .postcard:
+                        PostcardShareView(memory: memory)
+                    }
                 }
                 .alert("Delete Memory?", isPresented: $showDeleteAlert) {
                     Button("Delete", role: .destructive) {

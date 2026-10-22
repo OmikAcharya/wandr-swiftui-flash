@@ -5,8 +5,13 @@ public struct TripDetailView: View {
     @ObservedObject public var store: TravelStore
     public let tripId: UUID
 
-    @State private var showEditSheet: Bool = false
-    @State private var showAddMemorySheet: Bool = false
+    private enum ActiveSheet: Identifiable {
+        case editTrip
+        case addMemory
+        var id: Int { hashValue }
+    }
+
+    @State private var activeSheet: ActiveSheet? = nil
     @State private var showDeleteAlert: Bool = false
 
     public init(store: TravelStore, tripId: UUID) {
@@ -154,7 +159,7 @@ public struct TripDetailView: View {
                                     Spacer()
 
                                     Button {
-                                        showAddMemorySheet = true
+                                        activeSheet = .addMemory
                                     } label: {
                                         HStack(spacing: 4) {
                                             Image(systemName: "plus.circle.fill")
@@ -172,7 +177,7 @@ public struct TripDetailView: View {
                                         title: "No memories logged yet",
                                         message: "Capture your first story, photo, or special moment from this journey.",
                                         buttonTitle: "Write First Memory",
-                                        action: { showAddMemorySheet = true }
+                                        action: { activeSheet = .addMemory }
                                     )
                                 } else {
                                     ForEach(tripMemories) { memory in
@@ -200,7 +205,7 @@ public struct TripDetailView: View {
                     ToolbarItem(placement: .primaryAction) {
                         Menu {
                             Button {
-                                showEditSheet = true
+                                activeSheet = .editTrip
                             } label: {
                                 Label("Edit Trip", systemImage: "pencil")
                             }
@@ -224,11 +229,13 @@ public struct TripDetailView: View {
                         }
                     }
                 }
-                .sheet(isPresented: $showEditSheet) {
-                    AddEditTripView(store: store, existingTrip: trip)
-                }
-                .sheet(isPresented: $showAddMemorySheet) {
-                    AddEditMemoryView(store: store, preselectedTripId: trip.id)
+                .sheet(item: $activeSheet) { sheet in
+                    switch sheet {
+                    case .editTrip:
+                        AddEditTripView(store: store, existingTrip: trip)
+                    case .addMemory:
+                        AddEditMemoryView(store: store, preselectedTripId: trip.id)
+                    }
                 }
                 .alert("Delete Trip?", isPresented: $showDeleteAlert) {
                     Button("Delete", role: .destructive) {

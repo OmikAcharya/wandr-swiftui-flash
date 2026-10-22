@@ -3,8 +3,13 @@ import SwiftUI
 public struct TravelStatsView: View {
     @ObservedObject public var store: TravelStore
 
-    @State private var showResetAlert: Bool = false
-    @State private var showClearAlert: Bool = false
+    private enum ActiveAlert: Identifiable {
+        case reset
+        case clear
+        var id: Int { hashValue }
+    }
+
+    @State private var activeAlert: ActiveAlert? = nil
 
     public init(store: TravelStore) {
         self.store = store
@@ -74,21 +79,30 @@ public struct TravelStatsView: View {
                 .padding(.vertical, 16)
             }
             .navigationTitle("Travel Passport")
-            .alert("Restore Sample Travels?", isPresented: $showResetAlert) {
-                Button("Restore", role: .destructive) {
-                    store.resetToSampleData()
+            .alert(
+                activeAlert == .reset ? "Restore Sample Travels?" : "Clear All Travels?",
+                isPresented: Binding(
+                    get: { activeAlert != nil },
+                    set: { if !$0 { activeAlert = nil } }
+                )
+            ) {
+                if activeAlert == .reset {
+                    Button("Restore", role: .destructive) {
+                        store.resetToSampleData()
+                    }
+                    Button("Cancel", role: .cancel) {}
+                } else {
+                    Button("Clear All", role: .destructive) {
+                        store.clearAllData()
+                    }
+                    Button("Cancel", role: .cancel) {}
                 }
-                Button("Cancel", role: .cancel) {}
             } message: {
-                Text("This will replace current entries with inspiring sample journeys to Kyoto, Amalfi, and the Swiss Alps.")
-            }
-            .alert("Clear All Travels?", isPresented: $showClearAlert) {
-                Button("Clear All", role: .destructive) {
-                    store.clearAllData()
+                if activeAlert == .reset {
+                    Text("This will replace current entries with inspiring sample journeys to Kyoto, Amalfi, and the Swiss Alps.")
+                } else {
+                    Text("This will permanently delete all your trips and memories. This action cannot be undone.")
                 }
-                Button("Cancel", role: .cancel) {}
-            } message: {
-                Text("This will permanently delete all your trips and memories. This action cannot be undone.")
             }
         }
     }
@@ -279,7 +293,7 @@ public struct TravelStatsView: View {
 
             VStack(spacing: 0) {
                 Button {
-                    showResetAlert = true
+                    activeAlert = .reset
                 } label: {
                     HStack {
                         Label("Load Sample Travels", systemImage: "sparkles")
@@ -296,7 +310,7 @@ public struct TravelStatsView: View {
                 Divider()
 
                 Button {
-                    showClearAlert = true
+                    activeAlert = .clear
                 } label: {
                     HStack {
                         Label("Clear All Travels", systemImage: "trash")

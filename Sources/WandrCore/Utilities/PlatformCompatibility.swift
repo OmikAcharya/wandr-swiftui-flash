@@ -36,6 +36,40 @@ public extension PlatformImage {
         return bitmap.representation(using: .jpeg, properties: [.compressionFactor: compressionQuality])
         #endif
     }
+
+    static func downsample(data: Data, maxPixelDimension: CGFloat = 1200, compressionQuality: CGFloat = 0.8) -> Data? {
+        #if canImport(UIKit)
+        guard let image = UIImage(data: data) else { return nil }
+        let size = image.size
+        let maxDim = max(size.width, size.height)
+        if maxDim <= maxPixelDimension {
+            return image.jpegData(compressionQuality: compressionQuality) ?? data
+        }
+        let scale = maxPixelDimension / maxDim
+        let targetSize = CGSize(width: size.width * scale, height: size.height * scale)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1.0
+        let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
+        let resizedImage = renderer.image { _ in
+            image.draw(in: CGRect(origin: .zero, size: targetSize))
+        }
+        return resizedImage.jpegData(compressionQuality: compressionQuality)
+        #elseif canImport(AppKit)
+        guard let image = NSImage(data: data) else { return nil }
+        let size = image.size
+        let maxDim = max(size.width, size.height)
+        if maxDim <= maxPixelDimension {
+            return image.toJpegData(compressionQuality: compressionQuality) ?? data
+        }
+        let scale = maxPixelDimension / maxDim
+        let targetSize = NSSize(width: size.width * scale, height: size.height * scale)
+        let newImage = NSImage(size: targetSize)
+        newImage.lockFocus()
+        image.draw(in: NSRect(origin: .zero, size: targetSize), from: NSRect(origin: .zero, size: size), operation: .copy, fraction: 1.0)
+        newImage.unlockFocus()
+        return newImage.toJpegData(compressionQuality: compressionQuality)
+        #endif
+    }
 }
 
 public extension Color {

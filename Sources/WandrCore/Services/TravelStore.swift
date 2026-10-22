@@ -39,18 +39,23 @@ public final class TravelStore: ObservableObject {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
 
-        if let data = try? Data(contentsOf: tripsFileURL) {
+        let tripsExist = FileManager.default.fileExists(atPath: tripsFileURL.path)
+        let memoriesExist = FileManager.default.fileExists(atPath: memoriesFileURL.path)
+
+        if tripsExist, let data = try? Data(contentsOf: tripsFileURL) {
             loadedTrips = try? decoder.decode([Trip].self, from: data)
         }
 
-        if let data = try? Data(contentsOf: memoriesFileURL) {
+        if memoriesExist, let data = try? Data(contentsOf: memoriesFileURL) {
             loadedMemories = try? decoder.decode([MemoryEntry].self, from: data)
         }
 
-        if let t = loadedTrips, let m = loadedMemories, (!t.isEmpty || !m.isEmpty) {
-            self.trips = t
-            self.memories = m
+        if tripsExist || memoriesExist {
+            // Data files already exist on disk; respect user's data (even if empty)
+            self.trips = loadedTrips ?? []
+            self.memories = loadedMemories ?? []
         } else if loadSamplesIfEmpty {
+            // Fresh install: populate sample journeys
             let samples = SampleDataProvider.makeSampleData()
             self.trips = samples.trips
             self.memories = samples.memories

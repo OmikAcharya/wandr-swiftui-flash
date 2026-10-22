@@ -18,6 +18,7 @@ public struct AddEditTripView: View {
     @State private var coverImageName: String? = "kyoto_temple"
     @State private var customCoverImageData: Data? = nil
     @State private var selectedPhotoItem: PhotosPickerItem? = nil
+    @State private var hasLoadedInitialData: Bool = false
 
     public init(store: TravelStore, existingTrip: Trip? = nil) {
         self.store = store
@@ -47,9 +48,10 @@ public struct AddEditTripView: View {
                             .buttonStyle(.bordered)
                             .onChange(of: selectedPhotoItem) { item in
                                 Task {
-                                    if let data = try? await item?.loadTransferable(type: Data.self) {
+                                    if let rawData = try? await item?.loadTransferable(type: Data.self) {
+                                        let optimized = PlatformImage.downsample(data: rawData) ?? rawData
                                         await MainActor.run {
-                                            self.customCoverImageData = data
+                                            self.customCoverImageData = optimized
                                         }
                                     }
                                 }
@@ -122,6 +124,11 @@ public struct AddEditTripView: View {
                 // Section: Dates
                 Section("Dates") {
                     DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
+                        .onChange(of: startDate) { newStart in
+                            if endDate < newStart {
+                                endDate = newStart
+                            }
+                        }
                     DatePicker("End Date", selection: $endDate, in: startDate..., displayedComponents: .date)
                 }
 
@@ -151,6 +158,8 @@ public struct AddEditTripView: View {
                 }
             }
             .onAppear {
+                guard !hasLoadedInitialData else { return }
+                hasLoadedInitialData = true
                 if let trip = existingTrip {
                     self.title = trip.title
                     self.destination = trip.destination

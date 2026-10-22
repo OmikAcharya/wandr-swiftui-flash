@@ -3,7 +3,7 @@ import PhotosUI
 
 public struct PhotoPickerSection: View {
     @Binding public var photos: [MemoryPhoto]
-    @State private var selectedItem: PhotosPickerItem? = nil
+    @State private var selectedItems: [PhotosPickerItem] = []
     @State private var showPresetSheet: Bool = false
 
     public init(photos: Binding<[MemoryPhoto]>) {
@@ -25,7 +25,7 @@ public struct PhotoPickerSection: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     // PhotosPicker Button
-                    PhotosPicker(selection: $selectedItem, matching: .images) {
+                    PhotosPicker(selection: $selectedItems, matching: .images) {
                         VStack(spacing: 8) {
                             Image(systemName: "photo.badge.plus")
                                 .font(.system(size: 26))
@@ -43,13 +43,18 @@ public struct PhotoPickerSection: View {
                         )
                     }
                     .buttonStyle(.plain)
-                    .onChange(of: selectedItem) { newItem in
+                    .onChange(of: selectedItems) { newItems in
                         Task {
-                            if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                await MainActor.run {
-                                    photos.append(MemoryPhoto(imageData: data, caption: "Photo \(photos.count + 1)"))
-                                    selectedItem = nil
+                            for item in newItems {
+                                if let rawData = try? await item.loadTransferable(type: Data.self) {
+                                    let optimized = PlatformImage.downsample(data: rawData) ?? rawData
+                                    await MainActor.run {
+                                        photos.append(MemoryPhoto(imageData: optimized, caption: "Photo \(photos.count + 1)"))
+                                    }
                                 }
+                            }
+                            await MainActor.run {
+                                selectedItems = []
                             }
                         }
                     }
@@ -77,13 +82,13 @@ public struct PhotoPickerSection: View {
                     .buttonStyle(.plain)
 
                     // Existing Photos
-                    ForEach(Array(photos.enumerated()), id: \.element.id) { index, photo in
+                    ForEach(photos) { photo in
                         ZStack(alignment: .topTrailing) {
                             WandrImageView(photo: photo, cornerRadius: 12)
                                 .frame(width: 100, height: 110)
 
                             Button {
-                                photos.remove(at: index)
+                                photos.removeAll(where: { $0.id == photo.id })
                             } label: {
                                 Image(systemName: "xmark.circle.fill")
                                     .font(.system(size: 20))

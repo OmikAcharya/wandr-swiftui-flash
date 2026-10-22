@@ -28,7 +28,7 @@ public struct TravelMapView: View {
             ZStack(alignment: .bottom) {
                 // Interactive Map
                 Map(coordinateRegion: $region, annotationItems: pinnedMemories) { memory in
-                    MapAnnotation(coordinate: memory.coordinate!) {
+                    MapAnnotation(coordinate: memory.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)) {
                         Button {
                             withAnimation(.spring()) {
                                 selectedMemory = memory
@@ -212,7 +212,28 @@ public struct TravelMapView: View {
         let coords = store.memories.filter { $0.tripId == tripId }.compactMap { $0.coordinate }
         guard let first = coords.first else { return }
 
-        let center = first
-        region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1.5, longitudeDelta: 1.5))
+        if coords.count == 1 {
+            region = MKCoordinateRegion(center: first, span: MKCoordinateSpan(latitudeDelta: 1.5, longitudeDelta: 1.5))
+            return
+        }
+
+        var minLat = first.latitude
+        var maxLat = first.latitude
+        var minLon = first.longitude
+        var maxLon = first.longitude
+
+        for c in coords {
+            minLat = min(minLat, c.latitude)
+            maxLat = max(maxLat, c.latitude)
+            minLon = min(minLon, c.longitude)
+            maxLon = max(maxLon, c.longitude)
+        }
+
+        let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2.0, longitude: (minLon + maxLon) / 2.0)
+        let span = MKCoordinateSpan(
+            latitudeDelta: max(0.5, (maxLat - minLat) * 1.5),
+            longitudeDelta: max(0.5, (maxLon - minLon) * 1.5)
+        )
+        region = MKCoordinateRegion(center: center, span: span)
     }
 }

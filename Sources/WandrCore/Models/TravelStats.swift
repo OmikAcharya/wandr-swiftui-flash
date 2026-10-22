@@ -18,15 +18,27 @@ public struct TravelStats {
         let photoSum = memories.reduce(0) { $0 + $1.photos.count }
         self.totalPhotos = photoSum
 
-        // Unique countries
-        var countries = Set<String>()
-        for trip in trips where !trip.country.trimmingCharacters(in: .whitespaces).isEmpty {
-            countries.insert(trip.country.trimmingCharacters(in: .whitespaces))
+        // Unique countries (case-insensitive deduplication)
+        var countriesDict: [String: String] = [:]
+        for trip in trips {
+            let trimmed = trip.country.trimmingCharacters(in: .whitespaces)
+            if !trimmed.isEmpty {
+                let key = trimmed.lowercased()
+                if countriesDict[key] == nil {
+                    countriesDict[key] = trimmed
+                }
+            }
         }
-        for mem in memories where !mem.country.trimmingCharacters(in: .whitespaces).isEmpty {
-            countries.insert(mem.country.trimmingCharacters(in: .whitespaces))
+        for mem in memories {
+            let trimmed = mem.country.trimmingCharacters(in: .whitespaces)
+            if !trimmed.isEmpty {
+                let key = trimmed.lowercased()
+                if countriesDict[key] == nil {
+                    countriesDict[key] = trimmed
+                }
+            }
         }
-        self.visitedCountries = Array(countries).sorted()
+        self.visitedCountries = Array(countriesDict.values).sorted()
 
         // Total travel days across trips
         self.totalTravelDays = trips.reduce(0) { $0 + $1.durationInDays }
