@@ -1,0 +1,8 @@
+.build/
+.swiftpm/
+xcuserdata/
+DerivedData/
+*.xcuserstate
+*.DS_Store
+wandr_trips.json
+wandr_memories.json

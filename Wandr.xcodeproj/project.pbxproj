@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+/* Begin PBXBuildFile section */
+		6AEE5475A4A0800A18713D17 /* WandrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4DFA4F217FB4EA4E5C0EE9 /* WandrApp.swift */; };
+		616465ACAD4A8E9E9E3FAE97 /* MemoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A4859C0FC72E11F82154F /* MemoryEntry.swift */; };
+		2E537410308307BFABAF1B98 /* MemoryPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8316D6FB28FC7A3A1632118D /* MemoryPhoto.swift */; };
+		91C4C619DF54EC27B57FF38F /* TravelMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D22BCD9A4D0BEA49FCC58 /* TravelMood.swift */; };
+		7C2855D273BE7C6FA871714B /* TravelStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FF52A2110363F02012472 /* TravelStats.swift */; };
+		BD31B854B96FA9B7F86F0AA7 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932A52077D4CCC4A2E11E1A /* Trip.swift */; };
+		E247AE9A44AE1950E6A00E0C /* TripCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B2E6E03B72063F45CE3A70 /* TripCategory.swift */; };
+		A31B4E3BBAED7437391C4AF0 /* WeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6692EED620D2394E9007BB /* WeatherCondition.swift */; };
+		1C9536AFC17C2C9C65DDC41A /* PresetLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87589291F0DABBD92657EFC /* PresetLocations.swift */; };
+		50E7A286A49D5ECF2F30CF09 /* SampleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A215996615DC56F3BFCFD6FD /* SampleDataProvider.swift */; };
+		741FC12B56389F0FD8A2073F /* TravelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7541C96959AA314E866953C4 /* TravelStore.swift */; };
+		87EF269C479444CB39F9CD22 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA377FFA7DF82823D155B74 /* DateExtensions.swift */; };
+		4BD74D10DBFDBBCB2338BA89 /* PlatformCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E685E494346B1EA9F2685A4 /* PlatformCompatibility.swift */; };
+		305C1422205C1FE5F618F085 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223BBBE62D0FC6CA5674C2C5 /* ViewModifiers.swift */; };
+		BFB9624C10E28F5C6D2A8FD3 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE561D603DFC05A1FAB992 /* EmptyStateView.swift */; };
+		92BF472F6E561942FD91143F /* PhotoPickerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F0569983131B9EB91E737 /* PhotoPickerSection.swift */; };
+		C905C43B8AEDE07671E6131F /* PresetArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607859A427912F7DBC78854 /* PresetArtworkView.swift */; };
+		F9AE728A41832ADE8215F23B /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CAA2C960A55A9846FBC7C8 /* StarRatingView.swift */; };
+		EB43AFED338F51259212A1FC /* TagPillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46900C8411EC76E6B29A183 /* TagPillView.swift */; };
+		6A6E3F6D8D51861070BD8DD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2D74D98B60ABC77C639C7 /* ContentView.swift */; };
+		4BD21EC0160036371B173714 /* TravelMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3975620846E42301EBAEF39 /* TravelMapView.swift */; };
+		AA51FEC10FA06FD8841CC597 /* PostcardShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF38FF04E35068A5B82DC91 /* PostcardShareView.swift */; };
+		E26ABD05C6C22B6E895460F4 /* TravelStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98922D2871BDDA2723F42E6D /* TravelStatsView.swift */; };
+		0102366DBC08102EF241885A /* AddEditMemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49154818131EEE4F34DACDD0 /* AddEditMemoryView.swift */; };
+		5E0F61A248D4FCFE23C242E7 /* MemoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83662DED9BF18BEAFD4AA1 /* MemoryCardView.swift */; };
+		0CAEF06297576EDF08E678E7 /* MemoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9457602A8514E54B88CFC0 /* MemoryDetailView.swift */; };
+		F005891EBCC6711B8027B4DF /* TimelineFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A6906AAC246BA8F8BCB41 /* TimelineFeedView.swift */; };
+		6D65BB1D7CB8F068F2665BB0 /* AddEditTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B3A1A2A24BCB4C63D49BD /* AddEditTripView.swift */; };
+		EC79CD833DD463F5EF4578F9 /* TripCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46CD142236F13C8BCACB8F /* TripCardView.swift */; };
+		81E18F56C2885218342A9835 /* TripDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5A7F0EEF04CCAB4A8DA0A /* TripDetailView.swift */; };
+		8283DB65FA7B022030199EE6 /* TripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE94E7760863DC9D3D17A0 /* TripsView.swift */; };
+		CEC077DBC09E7403E3102494 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0684BD0D1182CFAE5141952 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A2049880F957A92F741D3CEC /* Wandr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wandr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB4DFA4F217FB4EA4E5C0EE9 /* WandrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrApp/WandrApp.swift"; sourceTree = "<group>"; };
+		E23A4859C0FC72E11F82154F /* MemoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Models/MemoryEntry.swift"; sourceTree = "<group>"; };
+		8316D6FB28FC7A3A1632118D /* MemoryPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Models/MemoryPhoto.swift"; sourceTree = "<group>"; };
+		9D9D22BCD9A4D0BEA49FCC58 /* TravelMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Models/TravelMood.swift"; sourceTree = "<group>"; };
+		456FF52A2110363F02012472 /* TravelStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Models/TravelStats.swift"; sourceTree = "<group>"; };
+		E932A52077D4CCC4A2E11E1A /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Models/Trip.swift"; sourceTree = "<group>"; };
+		10B2E6E03B72063F45CE3A70 /* TripCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Models/TripCategory.swift"; sourceTree = "<group>"; };
+		9A6692EED620D2394E9007BB /* WeatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Models/WeatherCondition.swift"; sourceTree = "<group>"; };
+		C87589291F0DABBD92657EFC /* PresetLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Services/PresetLocations.swift"; sourceTree = "<group>"; };
+		A215996615DC56F3BFCFD6FD /* SampleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Services/SampleDataProvider.swift"; sourceTree = "<group>"; };
+		7541C96959AA314E866953C4 /* TravelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Services/TravelStore.swift"; sourceTree = "<group>"; };
+		4CA377FFA7DF82823D155B74 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Utilities/DateExtensions.swift"; sourceTree = "<group>"; };
+		6E685E494346B1EA9F2685A4 /* PlatformCompatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Utilities/PlatformCompatibility.swift"; sourceTree = "<group>"; };
+		223BBBE62D0FC6CA5674C2C5 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Utilities/ViewModifiers.swift"; sourceTree = "<group>"; };
+		70DE561D603DFC05A1FAB992 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Components/EmptyStateView.swift"; sourceTree = "<group>"; };
+		0A2F0569983131B9EB91E737 /* PhotoPickerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Components/PhotoPickerSection.swift"; sourceTree = "<group>"; };
+		1607859A427912F7DBC78854 /* PresetArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Components/PresetArtworkView.swift"; sourceTree = "<group>"; };
+		85CAA2C960A55A9846FBC7C8 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Components/StarRatingView.swift"; sourceTree = "<group>"; };
+		C46900C8411EC76E6B29A183 /* TagPillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Components/TagPillView.swift"; sourceTree = "<group>"; };
+		B2C2D74D98B60ABC77C639C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/ContentView.swift"; sourceTree = "<group>"; };
+		E3975620846E42301EBAEF39 /* TravelMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Map/TravelMapView.swift"; sourceTree = "<group>"; };
+		2FF38FF04E35068A5B82DC91 /* PostcardShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Stats/PostcardShareView.swift"; sourceTree = "<group>"; };
+		98922D2871BDDA2723F42E6D /* TravelStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Stats/TravelStatsView.swift"; sourceTree = "<group>"; };
+		49154818131EEE4F34DACDD0 /* AddEditMemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Timeline/AddEditMemoryView.swift"; sourceTree = "<group>"; };
+		AD83662DED9BF18BEAFD4AA1 /* MemoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Timeline/MemoryCardView.swift"; sourceTree = "<group>"; };
+		1D9457602A8514E54B88CFC0 /* MemoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Timeline/MemoryDetailView.swift"; sourceTree = "<group>"; };
+		A59A6906AAC246BA8F8BCB41 /* TimelineFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Timeline/TimelineFeedView.swift"; sourceTree = "<group>"; };
+		B50B3A1A2A24BCB4C63D49BD /* AddEditTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Trips/AddEditTripView.swift"; sourceTree = "<group>"; };
+		CB46CD142236F13C8BCACB8F /* TripCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Trips/TripCardView.swift"; sourceTree = "<group>"; };
+		AEA5A7F0EEF04CCAB4A8DA0A /* TripDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Trips/TripDetailView.swift"; sourceTree = "<group>"; };
+		23BE94E7760863DC9D3D17A0 /* TripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/WandrCore/Views/Trips/TripsView.swift"; sourceTree = "<group>"; };
+		D0684BD0D1182CFAE5141952 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Sources/WandrApp/Assets.xcassets"; sourceTree = "<group>"; };
+		16C099383F450032315C2340 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sources/WandrApp/Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71FE200D317990948E24D8EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		579684E97C209B159B91A38C = {
+			isa = PBXGroup;
+			children = (
+				813FA8A79434E34ACED5DCC7 /* Sources */,
+				A3E89F8433CF2D7E61CA74BD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A3E89F8433CF2D7E61CA74BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2049880F957A92F741D3CEC /* Wandr.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		813FA8A79434E34ACED5DCC7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BB4DFA4F217FB4EA4E5C0EE9 /* WandrApp.swift */,
+				E23A4859C0FC72E11F82154F /* MemoryEntry.swift */,
+				8316D6FB28FC7A3A1632118D /* MemoryPhoto.swift */,
+				9D9D22BCD9A4D0BEA49FCC58 /* TravelMood.swift */,
+				456FF52A2110363F02012472 /* TravelStats.swift */,
+				E932A52077D4CCC4A2E11E1A /* Trip.swift */,
+				10B2E6E03B72063F45CE3A70 /* TripCategory.swift */,
+				9A6692EED620D2394E9007BB /* WeatherCondition.swift */,
+				C87589291F0DABBD92657EFC /* PresetLocations.swift */,
+				A215996615DC56F3BFCFD6FD /* SampleDataProvider.swift */,
+				7541C96959AA314E866953C4 /* TravelStore.swift */,
+				4CA377FFA7DF82823D155B74 /* DateExtensions.swift */,
+				6E685E494346B1EA9F2685A4 /* PlatformCompatibility.swift */,
+				223BBBE62D0FC6CA5674C2C5 /* ViewModifiers.swift */,
+				70DE561D603DFC05A1FAB992 /* EmptyStateView.swift */,
+				0A2F0569983131B9EB91E737 /* PhotoPickerSection.swift */,
+				1607859A427912F7DBC78854 /* PresetArtworkView.swift */,
+				85CAA2C960A55A9846FBC7C8 /* StarRatingView.swift */,
+				C46900C8411EC76E6B29A183 /* TagPillView.swift */,
+				B2C2D74D98B60ABC77C639C7 /* ContentView.swift */,
+				E3975620846E42301EBAEF39 /* TravelMapView.swift */,
+				2FF38FF04E35068A5B82DC91 /* PostcardShareView.swift */,
+				98922D2871BDDA2723F42E6D /* TravelStatsView.swift */,
+				49154818131EEE4F34DACDD0 /* AddEditMemoryView.swift */,
+				AD83662DED9BF18BEAFD4AA1 /* MemoryCardView.swift */,
+				1D9457602A8514E54B88CFC0 /* MemoryDetailView.swift */,
+				A59A6906AAC246BA8F8BCB41 /* TimelineFeedView.swift */,
+				B50B3A1A2A24BCB4C63D49BD /* AddEditTripView.swift */,
+				CB46CD142236F13C8BCACB8F /* TripCardView.swift */,
+				AEA5A7F0EEF04CCAB4A8DA0A /* TripDetailView.swift */,
+				23BE94E7760863DC9D3D17A0 /* TripsView.swift */,
+				D0684BD0D1182CFAE5141952 /* Assets.xcassets */,
+				16C099383F450032315C2340 /* Info.plist */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39DDC620F2BFA65B91724B7F /* Wandr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D9F45EE240204E96A49D99D /* Build configuration list for PBXNativeTarget "Wandr" */;
+			buildPhases = (
+				A7BB88F141516E17F21602B2 /* Sources */,
+				71FE200D317990948E24D8EE /* Frameworks */,
+				AF5FE74DAAF3C2BCB23F9A40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wandr;
+			productName = Wandr;
+			productReference = A2049880F957A92F741D3CEC /* Wandr.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03200735FE197252BA649CC2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					39DDC620F2BFA65B91724B7F = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = B5F7AEAD03252A72831486B6 /* Build configuration list for PBXProject "Wandr" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 579684E97C209B159B91A38C;
+			productRefGroup = A3E89F8433CF2D7E61CA74BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39DDC620F2BFA65B91724B7F /* Wandr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF5FE74DAAF3C2BCB23F9A40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC077DBC09E7403E3102494 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7BB88F141516E17F21602B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AEE5475A4A0800A18713D17 /* WandrApp.swift in Sources */,
+				616465ACAD4A8E9E9E3FAE97 /* MemoryEntry.swift in Sources */,
+				2E537410308307BFABAF1B98 /* MemoryPhoto.swift in Sources */,
+				91C4C619DF54EC27B57FF38F /* TravelMood.swift in Sources */,
+				7C2855D273BE7C6FA871714B /* TravelStats.swift in Sources */,
+				BD31B854B96FA9B7F86F0AA7 /* Trip.swift in Sources */,
+				E247AE9A44AE1950E6A00E0C /* TripCategory.swift in Sources */,
+				A31B4E3BBAED7437391C4AF0 /* WeatherCondition.swift in Sources */,
+				1C9536AFC17C2C9C65DDC41A /* PresetLocations.swift in Sources */,
+				50E7A286A49D5ECF2F30CF09 /* SampleDataProvider.swift in Sources */,
+				741FC12B56389F0FD8A2073F /* TravelStore.swift in Sources */,
+				87EF269C479444CB39F9CD22 /* DateExtensions.swift in Sources */,
+				4BD74D10DBFDBBCB2338BA89 /* PlatformCompatibility.swift in Sources */,
+				305C1422205C1FE5F618F085 /* ViewModifiers.swift in Sources */,
+				BFB9624C10E28F5C6D2A8FD3 /* EmptyStateView.swift in Sources */,
+				92BF472F6E561942FD91143F /* PhotoPickerSection.swift in Sources */,
+				C905C43B8AEDE07671E6131F /* PresetArtworkView.swift in Sources */,
+				F9AE728A41832ADE8215F23B /* StarRatingView.swift in Sources */,
+				EB43AFED338F51259212A1FC /* TagPillView.swift in Sources */,
+				6A6E3F6D8D51861070BD8DD8 /* ContentView.swift in Sources */,
+				4BD21EC0160036371B173714 /* TravelMapView.swift in Sources */,
+				AA51FEC10FA06FD8841CC597 /* PostcardShareView.swift in Sources */,
+				E26ABD05C6C22B6E895460F4 /* TravelStatsView.swift in Sources */,
+				0102366DBC08102EF241885A /* AddEditMemoryView.swift in Sources */,
+				5E0F61A248D4FCFE23C242E7 /* MemoryCardView.swift in Sources */,
+				0CAEF06297576EDF08E678E7 /* MemoryDetailView.swift in Sources */,
+				F005891EBCC6711B8027B4DF /* TimelineFeedView.swift in Sources */,
+				6D65BB1D7CB8F068F2665BB0 /* AddEditTripView.swift in Sources */,
+				EC79CD833DD463F5EF4578F9 /* TripCardView.swift in Sources */,
+				81E18F56C2885218342A9835 /* TripDetailView.swift in Sources */,
+				8283DB65FA7B022030199EE6 /* TripsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3F722CA2EE3DD876FFFC2195 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		939BBC9166216BF4D37D4AF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = "wholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E51E31CD1676D952864970DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/WandrApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Wandr;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wandr.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		06544BB62CDE524CB5AC8ED3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/WandrApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Wandr;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wandr.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B5F7AEAD03252A72831486B6 /* Build configuration list for PBXProject "Wandr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F722CA2EE3DD876FFFC2195 /* Debug */,
+				939BBC9166216BF4D37D4AF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D9F45EE240204E96A49D99D /* Build configuration list for PBXNativeTarget "Wandr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E51E31CD1676D952864970DB /* Debug */,
+				06544BB62CDE524CB5AC8ED3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 03200735FE197252BA649CC2 /* Project object */;
+}
